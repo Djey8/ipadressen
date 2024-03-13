@@ -20,10 +20,11 @@
 
 <div class="content" role="main">
   <label for="ipadressInput" class="lable">Ipadresse</label>
-  <input type="text" name="ipadress" id="ipadressInput" class="inputTextField" placeholder="192.168.33.0/24">
+  <input type="text" name="ipadress" id="ipadressInput" class="inputTextField" placeholder="192.168.33.0/24" [(ngModel)]="adressTextField">
   <label for="numberSubnetsInput" class="lable">numberRequestedSubnet</label>
-  <input type="number" name="numberSubnets" id="numberSubnetsInput" class="inputTextField" placeholder="4">
-  <button id="doButton">berechnen</button>
+  <input type="number" name="numberSubnets" id="numberSubnetsInput" class="inputTextField" placeholder="4" [(ngModel)]="numberSubnetsTextField">
+  <button id="doButton" (click)="calculateSubnets()">berechnen</button>
+  <label for="text" id="NumberOfClients"><b>NumberOfClients:</b> {{allSubnets[0].numberClients}}</label>
   <table id="resultTable">
     <thead>
       <tr>
@@ -32,25 +33,15 @@
         <th>Erste Adresse</th>
         <th>Letze Adresse</th>
         <th>Broadcastadresse</th>
-        <th>NumberOfClients</th>
       </tr>
     </thead>
    <tbody>
-      <tr>
-        <td>1</td>
-        <td>192.168.33.0</td>
-        <td>192.168.33.1</td>
-        <td>192.168.33.62</td>
-        <td>192.168.33.63</td>
-        <td>62</td>
-      </tr>  
-      <tr>
-        <td>2</td>
-        <td>192.168.33.0</td>
-        <td>192.168.33.1</td>
-        <td>192.168.33.62</td>
-        <td>192.168.33.63</td>
-        <td>*</td>
+      <tr *ngFor="let row of allSubnets; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{allSubnets[i].netId}}</td>  
+        <td>{{allSubnets[i].firstId}}</td>
+        <td>{{allSubnets[i].lastId}}</td>
+        <td>{{allSubnets[i].broadcastId}}</td>
       </tr>  
     </tbody>
   </table>

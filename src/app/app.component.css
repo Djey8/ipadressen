@@ -302,10 +302,11 @@
   }
 
   .inputTextField {
-    width: 500px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
+    font-size: 20px;
   }
 
   /* #numberSubnetsInput{
@@ -313,7 +314,7 @@
   } */
 
   #doButton {
-    width: 300px;
+    width: 80%;
     padding: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -324,7 +325,19 @@
 
   .lable {
     margin-top: 20px;
+    font-size: 20px;
   }
-  td{
+
+  .tableContent{
     text-align: center;
+    font-size: 15px;
+  }
+
+  tr{
+    text-align: center;
+  }
+
+  #NumberOfClients{
+    margin-top: 30px;
+    font-size: 20px;
   }
